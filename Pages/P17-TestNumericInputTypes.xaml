@@ -1,0 +1,219 @@
+﻿<Page 
+    x:Class="SampleUWP.P17"
+    xmlns:local="using:SampleUWP"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+
+    <!--  More about RelativePanel @ https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.relativepanel.aspx -->
+
+    <Page.Resources>
+
+        <!-- Set the width of the ComboBoxes. -->
+        <x:Double x:Key="cboxWidth">160</x:Double>
+
+    </Page.Resources>
+    
+    <RelativePanel x:Name="rpanel">
+
+        <Rectangle x:Name="rectLayoutCenter" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1" Height="10" Fill="Red"   Margin="0"         RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+        <Rectangle x:Name="rectLayoutLeft"   HorizontalAlignment="Right"  VerticalAlignment="Center" Width="1" Height="10" Fill="Green" Margin="0,0,300,0" RelativePanel.LeftOf="rectLayoutCenter"/>
+        <Rectangle x:Name="rectLayoutRight"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="1" Height="10" Fill="Blue"  Margin="300,0,0,0" RelativePanel.RightOf="rectLayoutCenter"/>
+
+        <TextBlock x:Name="tblockTitle" Text="Test Numeric Input Types" Style="{ThemeResource SubtitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4,8" RelativePanel.Below="rectLayoutCenter" RelativePanel.AlignHorizontalCenterWith="rectLayoutCenter"/>
+
+        <Button x:Name="butOutputToggle" Content="Output Toggle" Click="ButOutputToggle_Click" MinWidth="{StaticResource cboxWidth}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4,12,4,4" RelativePanel.Below="tblockTitle" RelativePanel.AlignHorizontalCenterWith="rectLayoutCenter" TabIndex="106"/>
+        <TextBlock x:Name="tblockOutputToggleNote" Style="{ThemeResource BodyTextBlockStyle}" Text="Output format toggle will not activate if input value was adjusted by code.  Press Enter key again to enable format button." RelativePanel.Below="butOutputToggle" Margin="4,4,4,12" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutCenter"/>
+
+
+        <!-- Input Decimal -->
+        <TextBlock x:Name="tblockDecimalInputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Test Decimal Input:" TextWrapping="NoWrap" RelativePanel.Below="tblockOutputToggleNote" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+        <TextBox x:Name="tboxDecimal" PlaceholderText="Decimal Input" LostFocus="TboxDecimal_LostFocus" TabIndex="101" Margin="4" MinWidth="{Binding Source={StaticResource cboxWidth}}" InputScope="FormulaNumber" KeyDown="TboxDecimal_KeyDown" TextChanged="TboxDecimal_TextChanged" RelativePanel.Below="tblockDecimalOutputLabel" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+
+        <TextBlock x:Name="tblockDecimalOutputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Decimal Output:" TextWrapping="NoWrap" RelativePanel.Below="tblockOutputToggleNote" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight"/>
+        <Border x:Name="bdrDecimalOutput" BorderThickness="2" RelativePanel.Below="tblockDecimalOutputLabel" BorderBrush="{ThemeResource ComboBoxDisabledForegroundThemeBrush}" MinWidth="{Binding Source={StaticResource cboxWidth}}" MinHeight="32" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight">
+            <TextBlock x:Name="tblockDecimal" Style="{ThemeResource BodyTextBlockStyle}" Margin="8,4" TextWrapping="NoWrap" Text="Decimal Output" VerticalAlignment="Center" HorizontalAlignment="Left" IsTextSelectionEnabled="True"/>
+        </Border>
+
+        <!-- Input Double -->
+        <TextBlock x:Name="tblockDoubleInputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Test Double Input:" TextWrapping="NoWrap" RelativePanel.Below="bdrDecimalOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+        <TextBox x:Name="tboxDouble" PlaceholderText="Double Input" LostFocus="TboxDouble_LostFocus" TabIndex="102" Margin="4" MinWidth="{Binding Source={StaticResource cboxWidth}}" InputScope="FormulaNumber" KeyDown="TboxDouble_KeyDown" TextChanged="TboxDouble_TextChanged" RelativePanel.Below="tblockDoubleOutputLabel" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+
+        <TextBlock x:Name="tblockDoubleOutputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Double Output:" TextWrapping="NoWrap" RelativePanel.Below="bdrDecimalOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight"/>
+        <Border x:Name="bdrDoubleOutput" BorderThickness="2" RelativePanel.Below="tblockDoubleOutputLabel" BorderBrush="{ThemeResource ComboBoxDisabledForegroundThemeBrush}" MinWidth="{Binding Source={StaticResource cboxWidth}}" MinHeight="32" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight">
+            <TextBlock x:Name="tblockDouble" Style="{ThemeResource BodyTextBlockStyle}" Margin="8,4" TextWrapping="NoWrap" Text="Double Output" VerticalAlignment="Center" HorizontalAlignment="Left" IsTextSelectionEnabled="True"/>
+        </Border>
+
+        <!-- Input Float -->
+        <TextBlock x:Name="tblockFloatInputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Test Float Input:" TextWrapping="NoWrap" RelativePanel.Below="bdrDoubleOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+        <TextBox x:Name="tboxFloat" PlaceholderText="Float Input" LostFocus="TboxFloat_LostFocus" TabIndex="103" Margin="4" MinWidth="{Binding Source={StaticResource cboxWidth}}" InputScope="FormulaNumber" KeyDown="TboxFloat_KeyDown" TextChanged="TboxFloat_TextChanged" RelativePanel.Below="tblockFloatOutputLabel" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+
+        <TextBlock x:Name="tblockFloatOutputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Float Output:" TextWrapping="NoWrap" RelativePanel.Below="bdrDoubleOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight"/>
+        <Border x:Name="bdrFloatOutput" BorderThickness="2" RelativePanel.Below="tblockFloatOutputLabel" BorderBrush="{ThemeResource ComboBoxDisabledForegroundThemeBrush}" MinWidth="{Binding Source={StaticResource cboxWidth}}" MinHeight="32" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight">
+            <TextBlock x:Name="tblockFloat" Style="{ThemeResource BodyTextBlockStyle}" Margin="8,4" TextWrapping="NoWrap" Text="Float Output" VerticalAlignment="Center" HorizontalAlignment="Left" IsTextSelectionEnabled="True"/>
+        </Border>
+        
+        <!-- Input Long -->
+        <TextBlock x:Name="tblockLongInputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Test Long Input:" TextWrapping="NoWrap" RelativePanel.Below="bdrFloatOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+        <TextBox x:Name="tboxLong" PlaceholderText="Long Input" LostFocus="TboxLong_LostFocus" TabIndex="104" Margin="4" MinWidth="{Binding Source={StaticResource cboxWidth}}" InputScope="FormulaNumber" KeyDown="TboxLong_KeyDown" TextChanged="TboxLong_TextChanged" RelativePanel.Below="tblockLongOutputLabel" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+
+        <TextBlock x:Name="tblockLongOutputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Long Output:" TextWrapping="NoWrap" RelativePanel.Below="bdrFloatOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight"/>
+        <Border x:Name="bdrLongOutput" BorderThickness="2" RelativePanel.Below="tblockLongOutputLabel" BorderBrush="{ThemeResource ComboBoxDisabledForegroundThemeBrush}" MinWidth="{Binding Source={StaticResource cboxWidth}}" MinHeight="32" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight">
+            <TextBlock x:Name="tblockLong" Style="{ThemeResource BodyTextBlockStyle}" Margin="8,4" TextWrapping="NoWrap" Text="Long Output" VerticalAlignment="Center" HorizontalAlignment="Left" IsTextSelectionEnabled="True"/>
+        </Border>
+
+        <!-- Input Ulong -->
+        <TextBlock x:Name="tblockUlongInputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Test Ulong Input:" TextWrapping="NoWrap" RelativePanel.Below="bdrLongOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+        <TextBox x:Name="tboxUlong" PlaceholderText="Ulong Input" LostFocus="TboxUlong_LostFocus" TabIndex="105" Margin="4" MinWidth="{Binding Source={StaticResource cboxWidth}}" InputScope="FormulaNumber" KeyDown="TboxUlong_KeyDown" TextChanged="TboxUlong_TextChanged" RelativePanel.Below="tblockUlongOutputLabel" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+
+        <TextBlock x:Name="tblockUlongOutputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Ulong Output:" TextWrapping="NoWrap" RelativePanel.Below="bdrLongOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight"/>
+        <Border x:Name="bdrUlongOutput" BorderThickness="2" RelativePanel.Below="tblockUlongOutputLabel" BorderBrush="{ThemeResource ComboBoxDisabledForegroundThemeBrush}" MinWidth="{Binding Source={StaticResource cboxWidth}}" MinHeight="32" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight">
+            <TextBlock x:Name="tblockUlong" Style="{ThemeResource BodyTextBlockStyle}" Margin="8,4" TextWrapping="NoWrap" Text="Ulong Output" VerticalAlignment="Center" HorizontalAlignment="Left" IsTextSelectionEnabled="True"/>
+        </Border>
+
+        <!-- Input Int -->
+        <TextBlock x:Name="tblockIntInputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Test Int Input:" TextWrapping="NoWrap" RelativePanel.Below="bdrUlongOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+        <TextBox x:Name="tboxInt" PlaceholderText="Int Input" LostFocus="TboxInt_LostFocus" TabIndex="106" Margin="4" MinWidth="{Binding Source={StaticResource cboxWidth}}" InputScope="FormulaNumber" KeyDown="TboxInt_KeyDown" TextChanged="TboxInt_TextChanged" RelativePanel.Below="tblockIntOutputLabel" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+
+        <TextBlock x:Name="tblockIntOutputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Int Output:" TextWrapping="NoWrap" RelativePanel.Below="bdrUlongOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight"/>
+        <Border x:Name="bdrIntOutput" BorderThickness="2" RelativePanel.Below="tblockIntOutputLabel" BorderBrush="{ThemeResource ComboBoxDisabledForegroundThemeBrush}" MinWidth="{Binding Source={StaticResource cboxWidth}}" MinHeight="32" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight">
+            <TextBlock x:Name="tblockInt" Style="{ThemeResource BodyTextBlockStyle}" Margin="8,4" TextWrapping="NoWrap" Text="Int Output" VerticalAlignment="Center" HorizontalAlignment="Left" IsTextSelectionEnabled="True"/>
+        </Border>
+
+        <!-- Input Uint -->
+        <TextBlock x:Name="tblockUintInputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Test Uint Input:" TextWrapping="NoWrap" RelativePanel.Below="bdrIntOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+        <TextBox x:Name="tboxUint" PlaceholderText="Uint Input" LostFocus="TboxUint_LostFocus" TabIndex="107" Margin="4" MinWidth="{Binding Source={StaticResource cboxWidth}}" InputScope="FormulaNumber" KeyDown="TboxUint_KeyDown" TextChanged="TboxUint_TextChanged" RelativePanel.Below="tblockUintOutputLabel" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+
+        <TextBlock x:Name="tblockUintOutputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Uint Output:" TextWrapping="NoWrap" RelativePanel.Below="bdrIntOutput" Margin="4,12,4,2" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight"/>
+        <Border x:Name="bdrUintOutput" BorderThickness="2" RelativePanel.Below="tblockUintOutputLabel" BorderBrush="{ThemeResource ComboBoxDisabledForegroundThemeBrush}" MinWidth="{Binding Source={StaticResource cboxWidth}}" MinHeight="32" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight">
+            <TextBlock x:Name="tblockUint" Style="{ThemeResource BodyTextBlockStyle}" Margin="8,4" TextWrapping="NoWrap" Text="Uint Output" VerticalAlignment="Center" HorizontalAlignment="Left" IsTextSelectionEnabled="True"/>
+        </Border>
+
+        <!-- Input Short -->
+        <TextBlock x:Name="tblockShortInputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Test Short Input:" TextWrapping="NoWrap" RelativePanel.Below="bdrUintOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+        <TextBox x:Name="tboxShort" PlaceholderText="Short Input" LostFocus="TboxShort_LostFocus" TabIndex="108" Margin="4" MinWidth="{Binding Source={StaticResource cboxWidth}}" InputScope="FormulaNumber" KeyDown="TboxShort_KeyDown" TextChanged="TboxShort_TextChanged" RelativePanel.Below="tblockShortOutputLabel" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+
+        <TextBlock x:Name="tblockShortOutputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Short Output:" TextWrapping="NoWrap" RelativePanel.Below="bdrUintOutput" Margin="4,12,4,2" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight"/>
+        <Border x:Name="bdrShortOutput" BorderThickness="2" RelativePanel.Below="tblockShortOutputLabel" BorderBrush="{ThemeResource ComboBoxDisabledForegroundThemeBrush}" MinWidth="{Binding Source={StaticResource cboxWidth}}" MinHeight="32" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight">
+            <TextBlock x:Name="tblockShort" Style="{ThemeResource BodyTextBlockStyle}" Margin="8,4" TextWrapping="NoWrap" Text="Short Output" VerticalAlignment="Center" HorizontalAlignment="Left" IsTextSelectionEnabled="True"/>
+        </Border>
+
+        <!-- Input Ushort -->
+        <TextBlock x:Name="tblockUshortInputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Test Ushort Input:" TextWrapping="NoWrap" RelativePanel.Below="bdrShortOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+        <TextBox x:Name="tboxUshort" PlaceholderText="Ushort Input" LostFocus="TboxUshort_LostFocus" TabIndex="109" Margin="4,5,4,3" MinWidth="{Binding Source={StaticResource cboxWidth}}" InputScope="FormulaNumber" KeyDown="TboxUshort_KeyDown" TextChanged="TboxUshort_TextChanged" RelativePanel.Below="tblockUshortOutputLabel" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+
+        <TextBlock x:Name="tblockUshortOutputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Ushort Output:" TextWrapping="NoWrap" RelativePanel.Below="bdrShortOutput" Margin="4,12,4,2" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight"/>
+        <Border x:Name="bdrUshortOutput" BorderThickness="2" RelativePanel.Below="tblockUshortOutputLabel" BorderBrush="{ThemeResource ComboBoxDisabledForegroundThemeBrush}" MinWidth="{Binding Source={StaticResource cboxWidth}}" MinHeight="32" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight">
+            <TextBlock x:Name="tblockUshort" Style="{ThemeResource BodyTextBlockStyle}" Margin="8,4" TextWrapping="NoWrap" Text="Ushort Output" VerticalAlignment="Center" HorizontalAlignment="Left" IsTextSelectionEnabled="True"/>
+        </Border>
+
+        <!-- Input Sbyte -->
+        <TextBlock x:Name="tblockSbyteInputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Test Sbyte Input:" TextWrapping="NoWrap" RelativePanel.Below="bdrUshortOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+        <TextBox x:Name="tboxSbyte" PlaceholderText="Sbyte Input" LostFocus="TboxSbyte_LostFocus" TabIndex="110" Margin="4" MinWidth="{Binding Source={StaticResource cboxWidth}}" InputScope="FormulaNumber" KeyDown="TboxSbyte_KeyDown" TextChanged="TboxSbyte_TextChanged" RelativePanel.Below="tblockSbyteOutputLabel" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+
+        <TextBlock x:Name="tblockSbyteOutputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Sbyte Output:" TextWrapping="NoWrap" RelativePanel.Below="bdrUshortOutput" Margin="4,12,4,2" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight"/>
+        <Border x:Name="bdrSbyteOutput" BorderThickness="2" RelativePanel.Below="tblockSbyteOutputLabel" BorderBrush="{ThemeResource ComboBoxDisabledForegroundThemeBrush}" MinWidth="{Binding Source={StaticResource cboxWidth}}" MinHeight="32" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight">
+            <TextBlock x:Name="tblockSbyte" Style="{ThemeResource BodyTextBlockStyle}" Margin="8,4" TextWrapping="NoWrap" Text="Sbyte Output" VerticalAlignment="Center" HorizontalAlignment="Left" IsTextSelectionEnabled="True"/>
+        </Border>
+
+        <!-- Input Byte -->
+        <TextBlock x:Name="tblockByteInputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Test Byte Input:" TextWrapping="NoWrap" RelativePanel.Below="bdrSbyteOutput" Margin="4,12,4,4" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+        <TextBox x:Name="tboxByte" PlaceholderText="Byte Input" LostFocus="TboxByte_LostFocus" TabIndex="111" Margin="4" MinWidth="{Binding Source={StaticResource cboxWidth}}" InputScope="FormulaNumber" KeyDown="TboxByte_KeyDown" TextChanged="TboxByte_TextChanged" RelativePanel.Below="tblockByteOutputLabel" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutLeft"/>
+
+        <TextBlock x:Name="tblockByteOutputLabel" Style="{ThemeResource BodyTextBlockStyle}" Text="Byte Output:" TextWrapping="NoWrap" RelativePanel.Below="bdrSbyteOutput" Margin="4,12,4,2" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight"/>
+        <Border x:Name="bdrByteOutput" BorderThickness="2" RelativePanel.Below="tblockByteOutputLabel" BorderBrush="{ThemeResource ComboBoxDisabledForegroundThemeBrush}" MinWidth="{Binding Source={StaticResource cboxWidth}}" MinHeight="32" Margin="4,4,4,32" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWith="rectLayoutRight">
+            <TextBlock x:Name="tblockByte" Style="{ThemeResource BodyTextBlockStyle}" Margin="8,4" TextWrapping="NoWrap" Text="Byte Output" VerticalAlignment="Center" HorizontalAlignment="Left" IsTextSelectionEnabled="True"/>
+        </Border>
+
+
+        <!-- Set responsive states for SplitView pane menu.  See following links for much more information:
+        https://msdn.microsoft.com/en-us/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design
+        https://msdn.microsoft.com/windows/uwp/layout/layouts-with-xaml?f=255&MSPPError=-2147217396
+        https://www.microsoft.com/en-gb/developers/articles/week03aug15/designing-with-adaptive-triggers-for-windows-10/
+        When none of VisualStates are active, system restores UI to specified XAML above.
+        Only UWP AdaptiveTriggers are MinWindowWidth and/or MinWindowHeight.  Show largest values first, if not true then defaults to next. Returns on true. -->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <!-- Need to use separate groups for height and width. -->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="{StaticResource meduimAdaptTrigMinWindowHeight}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- Height>=480: Do nothing and use XAML code above as default. -->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- Height<480: Following height adjustments are intended for phones in landscape orientation. 
+                        
+                        
+                        <Setter Target="tblockTitle.Visibility" Value="Collapsed" />
+
+                        <Setter Target="tblockConvertType.Margin" Value="4,2,4,1" />
+                        <Setter Target="cboxConvertType.Margin" Value="4,1,4,4" />
+
+                        <Setter Target="tblockConvertInput.Margin" Value="4,4,4,1" />
+                        <Setter Target="cboxConvertInput.Margin" Value="4,1,4,4" />
+
+                        <Setter Target="tblockConvertOutput.Margin" Value="4,4,4,1" />
+                        <Setter Target="cboxConvertOutput.Margin" Value="4,1,4,4" />
+
+
+                        <Setter Target="tblockInputLabel.Margin" Value="4,8,4,1" />
+                        <Setter Target="tboxInput.Margin" Value="4,1,4,1" />
+                        <Setter Target="tblockTypeInput.Margin" Value="4,1,4,8" />
+
+
+                        <Setter Target="tblockOutputLabel.Margin" Value="4,8,4,1" />
+                        <Setter Target="bdrOutput.Margin" Value="4,1,4,1" />
+                        <Setter Target="tblockTypeOutput.Margin" Value="4,1,4,8" />
+
+
+                        <Setter Target="butInvertUnits.Margin" Value="4,12,4,4" />
+                        <Setter Target="butOutputToggle.Margin" Value="4,12,4,4" />
+
+                        <Setter Target="butUnitURL.Margin" Value="4,8,4,4" />
+                        
+                                                                                                    -->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <!-- Need to use separate groups for height and width. -->
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource largeAdaptTrigMinWindowWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- Width>=720: Do nothing and use XAML code above as default. -->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource meduimAdaptTrigMinWindowWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- Width>=480: Do nothing and use XAML code above as default. -->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- Width<480: Following width adjustments are intended for phones in portrait orientation. -->
+                        <Setter Target="rectLayoutLeft.Margin" Value="0,0,180,0" />
+                        <Setter Target="rectLayoutRight.Margin" Value="0,0,180,0" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+    </RelativePanel>
+</Page>

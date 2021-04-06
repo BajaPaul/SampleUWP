@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{F17DB524-6653-4CFE-81D6-4E1201A4F46E}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SampleUWP</RootNamespace>
+    <AssemblyName>SampleUWP</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Libraries\LibNumerics.cs">
+      <Link>Libraries\LibNumerics.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Libraries\LibUnitConversions.cs">
+      <Link>Libraries\LibUnitConversions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Libraries\LibUtilitiesMisc.cs">
+      <Link>Libraries\LibUtilitiesMisc.cs</Link>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BeamDesign\BeamDesign01.cs" />
+    <Compile Include="BeamDesign\BeamDesignType01.cs" />
+    <Compile Include="BeamDesign\W2DPrint.cs" />
+    <Compile Include="Common\Employee.cs" />
+    <Compile Include="Common\GeneratorIncrementalLoadingClass.cs" />
+    <Compile Include="Common\IncrementalLoadingBase.cs" />
+    <Compile Include="Common\Team.cs" />
+    <Compile Include="Common\Win2dUtilities.cs" />
+    <Compile Include="ConsoleCodeSamples\DoubleConverter.cs" />
+    <Compile Include="ConsoleCodeSamples\Part.cs" />
+    <Compile Include="ConsoleCodeSamples\Sample01_List_Methods.cs" />
+    <Compile Include="ConsoleCodeSamples\Sample02_List_Methods.cs" />
+    <Compile Include="ConsoleCodeSamples\Sample03_TryParse_Methods.cs" />
+    <Compile Include="ConsoleCodeSamples\Sample04_Numeric_Format_Strings.cs" />
+    <Compile Include="ConsoleCodeSamples\Sample05_DoubleConverter.cs" />
+    <Compile Include="ConsoleCodeSamples\Sample06_Use_UnitConversions.cs" />
+    <Compile Include="ConsoleCodeSamples\Sample07_Fractions_Of_Various_Numbers.cs" />
+    <Compile Include="ConsoleCodeSamples\Sample08_Test_Truncate_Methods.cs" />
+    <Compile Include="ConsoleCodeSamples\Sample09_Enum_Code_Sampler.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuSetup.cs" />
+    <Compile Include="Pages\B01-ValueConverters.xaml.cs">
+      <DependentUpon>B01-ValueConverters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\B02-BindingToAModel.xaml.cs">
+      <DependentUpon>B02-BindingToAModel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\B03-Indexers.xaml.cs">
+      <DependentUpon>B03-Indexers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\B04-DataTemplates.xaml.cs">
+      <DependentUpon>B04-DataTemplates.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\B05-CollectionViewSource.xaml.cs">
+      <DependentUpon>B05-CollectionViewSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\B06-CollectionChanges.xaml.cs">
+      <DependentUpon>B06-CollectionChanges.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\B07-IncrementalLoading.xaml.cs">
+      <DependentUpon>B07-IncrementalLoading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\B08-UpdateSourceTrigger.xaml.cs">
+      <DependentUpon>B08-UpdateSourceTrigger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\B09-Fallback-TargetNull.xaml.cs">
+      <DependentUpon>B09-Fallback-TargetNull.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P01-BeamConcentratedLoad.xaml.cs">
+      <DependentUpon>P01-BeamConcentratedLoad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P02-ThemeResources.xaml.cs">
+      <DependentUpon>P02-ThemeResources.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P03-RichTextBlocks.xaml.cs">
+      <DependentUpon>P03-RichTextBlocks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P04-GroupingLVandGV.xaml.cs">
+      <DependentUpon>P04-GroupingLVandGV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P05-PivotBasic.xaml.cs">
+      <DependentUpon>P05-PivotBasic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P06-BindingSamples.xaml.cs">
+      <DependentUpon>P06-BindingSamples.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P07-ResponsiveTechnique.xaml.cs">
+      <DependentUpon>P07-ResponsiveTechnique.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P08-ExploreShapes.xaml.cs">
+      <DependentUpon>P08-ExploreShapes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P09-Win2DShapeSample.xaml.cs">
+      <DependentUpon>P09-Win2DShapeSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P10-Win2DGeometrySample.xaml.cs">
+      <DependentUpon>P10-Win2DGeometrySample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P11-Win2DPracticeDrawings.xaml.cs">
+      <DependentUpon>P11-Win2DPracticeDrawings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P12-Win2DAnimations.xaml.cs">
+      <DependentUpon>P12-Win2DAnimations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P13-Win2DDelegatePrint.xaml.cs">
+      <DependentUpon>P13-Win2DDelegatePrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P14-Win2DPrintingExample.xaml.cs">
+      <DependentUpon>P14-Win2DPrintingExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P15-ComboBox Samples.xaml.cs">
+      <DependentUpon>P15-ComboBox Samples.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P16-ConsoleCodeSamples.xaml.cs">
+      <DependentUpon>P16-ConsoleCodeSamples.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\P17-TestNumericInputTypes.xaml.cs">
+      <DependentUpon>P17-TestNumericInputTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageBlank-CopyToMakeNewPage.xaml.cs">
+      <DependentUpon>PageBlank-CopyToMakeNewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\S01-Settings.xaml.cs">
+      <DependentUpon>S01-Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\S02-WindowSizeInfo.xaml.cs">
+      <DependentUpon>S02-WindowSizeInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Background1.png" />
+    <Content Include="Assets\Background2.png" />
+    <Content Include="Assets\Background3.png" />
+    <Content Include="Assets\Background4.png" />
+    <Content Include="Assets\Background5.png" />
+    <Content Include="Assets\BG01.jpg" />
+    <Content Include="Assets\BG02.jpg" />
+    <Content Include="Assets\BG03.jpg" />
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\Windows 10 Built-In Text Styles Chart.PNG" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="ThumbnailsAll\AboutNarrow.png" />
+    <Content Include="ThumbnailsAll\AboutWide.png" />
+    <Content Include="ThumbnailsAll\AnimatedControlNarrow.png" />
+    <Content Include="ThumbnailsAll\AnimatedControlWide.png" />
+    <Content Include="ThumbnailsAll\ArcOptionsNarrow.png" />
+    <Content Include="ThumbnailsAll\ArcOptionsWide.png" />
+    <Content Include="ThumbnailsAll\BackgroundTaskNarrow.png" />
+    <Content Include="ThumbnailsAll\BackgroundTaskWide.png" />
+    <Content Include="ThumbnailsAll\BitmapRotationNarrow.png" />
+    <Content Include="ThumbnailsAll\BitmapRotationWide.png" />
+    <Content Include="ThumbnailsAll\BurningTextNarrow.png" />
+    <Content Include="ThumbnailsAll\BurningTextWide.png" />
+    <Content Include="ThumbnailsAll\ControlTransformsNarrow.png" />
+    <Content Include="ThumbnailsAll\ControlTransformsWide.png" />
+    <Content Include="ThumbnailsAll\CustomControlNarrow.png" />
+    <Content Include="ThumbnailsAll\CustomControlWide.png" />
+    <Content Include="ThumbnailsAll\CustomEffectsNarrow.png" />
+    <Content Include="ThumbnailsAll\CustomEffectsWide.png" />
+    <Content Include="ThumbnailsAll\CustomFontsNarrow.png" />
+    <Content Include="ThumbnailsAll\CustomFontsWide.png" />
+    <Content Include="ThumbnailsAll\CustomTextLayoutsNarrow.png" />
+    <Content Include="ThumbnailsAll\CustomTextLayoutsWide.png" />
+    <Content Include="ThumbnailsAll\DeveloperToolsNarrow.png" />
+    <Content Include="ThumbnailsAll\DeveloperToolsWide.png" />
+    <Content Include="ThumbnailsAll\Direct3DInteropNarrow.png" />
+    <Content Include="ThumbnailsAll\Direct3DInteropWide.png" />
+    <Content Include="ThumbnailsAll\DPINarrow.png" />
+    <Content Include="ThumbnailsAll\DPIWide.png" />
+    <Content Include="ThumbnailsAll\DrawImageEmulationsNarrow.png" />
+    <Content Include="ThumbnailsAll\DrawImageEmulationsWide.png" />
+    <Content Include="ThumbnailsAll\EffectRegionMappingNarrow.png" />
+    <Content Include="ThumbnailsAll\EffectRegionMappingWide.png" />
+    <Content Include="ThumbnailsAll\EffectsNarrow.png" />
+    <Content Include="ThumbnailsAll\EffectsWide.png" />
+    <Content Include="ThumbnailsAll\FontMetricsNarrow.png" />
+    <Content Include="ThumbnailsAll\FontMetricsWide.png" />
+    <Content Include="ThumbnailsAll\GameofLifeNarrow.png" />
+    <Content Include="ThumbnailsAll\GameofLifeWide.png" />
+    <Content Include="ThumbnailsAll\GeometryOperationsNarrow.png" />
+    <Content Include="ThumbnailsAll\GeometryOperationsWide.png" />
+    <Content Include="ThumbnailsAll\GlyphRotationNarrow.png" />
+    <Content Include="ThumbnailsAll\GlyphRotationWide.png" />
+    <Content Include="ThumbnailsAll\HistogramNarrow.png" />
+    <Content Include="ThumbnailsAll\HistogramWide.png" />
+    <Content Include="ThumbnailsAll\ImageSourceUpdateRegionNarrow.png" />
+    <Content Include="ThumbnailsAll\ImageSourceUpdateRegionWide.png" />
+    <Content Include="ThumbnailsAll\KeyboardInputNarrow.png" />
+    <Content Include="ThumbnailsAll\KeyboardInputWide.png" />
+    <Content Include="ThumbnailsAll\LayersNarrow.png" />
+    <Content Include="ThumbnailsAll\LayersWide.png" />
+    <Content Include="ThumbnailsAll\MandelbrotNarrow.png" />
+    <Content Include="ThumbnailsAll\MandelbrotWide.png" />
+    <Content Include="ThumbnailsAll\ParticleSystemNarrow.png" />
+    <Content Include="ThumbnailsAll\ParticleSystemWide.png" />
+    <Content Include="ThumbnailsAll\PrintingNarrow.png" />
+    <Content Include="ThumbnailsAll\PrintingWide.png" />
+    <Content Include="ThumbnailsAll\ShapesNarrow.png" />
+    <Content Include="ThumbnailsAll\ShapesWide.png" />
+    <Content Include="ThumbnailsAll\StrokeStylesNarrow.png" />
+    <Content Include="ThumbnailsAll\StrokeStylesWide.png" />
+    <Content Include="ThumbnailsAll\TextDirectionsNarrow.png" />
+    <Content Include="ThumbnailsAll\TextDirectionsWide.png" />
+    <Content Include="ThumbnailsAll\TextLayoutsNarrow.png" />
+    <Content Include="ThumbnailsAll\TextLayoutsWide.png" />
+    <Content Include="ThumbnailsAll\TextOutlinesNarrow.png" />
+    <Content Include="ThumbnailsAll\TextOutlinesWide.png" />
+    <Content Include="ThumbnailsAll\TypographyNarrow.png" />
+    <Content Include="ThumbnailsAll\TypographyWide.png" />
+    <Content Include="ThumbnailsAll\VectorArtNarrow.png" />
+    <Content Include="ThumbnailsAll\VectorArtWide.png" />
+    <Content Include="ThumbnailsAll\VirtualControlNarrow.png" />
+    <Content Include="ThumbnailsAll\VirtualControlWide.png" />
+    <Content Include="Thumbnails\BurningTextNarrow.png" />
+    <Content Include="Thumbnails\BurningTextWide.png" />
+    <Content Include="Thumbnails\GeometryOperationsNarrow.png" />
+    <Content Include="Thumbnails\GeometryOperationsWide.png" />
+    <Content Include="Thumbnails\LayersNarrow.png" />
+    <Content Include="Thumbnails\LayersWide.png" />
+    <Content Include="Thumbnails\PrintingNarrow.png" />
+    <Content Include="Thumbnails\PrintingWide.png" />
+    <Content Include="Thumbnails\ShapesNarrow.png" />
+    <Content Include="Thumbnails\ShapesWide.png" />
+    <Content Include="Thumbnails\StrokeStylesNarrow.png" />
+    <Content Include="Thumbnails\StrokeStylesWide.png" />
+    <Content Include="Thumbnails\TextDirectionsNarrow.png" />
+    <Content Include="Thumbnails\TextDirectionsWide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\B01-ValueConverters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\B02-BindingToAModel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\B03-Indexers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\B04-DataTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\B05-CollectionViewSource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\B06-CollectionChanges.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\B07-IncrementalLoading.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\B08-UpdateSourceTrigger.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\B09-Fallback-TargetNull.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P01-BeamConcentratedLoad.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P02-ThemeResources.DeviceFamily-Mobile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P02-ThemeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P03-RichTextBlocks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P04-GroupingLVandGV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P05-PivotBasic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P06-BindingSamples.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P07-ResponsiveTechnique.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P08-ExploreShapes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P09-Win2DShapeSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P10-Win2DGeometrySample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P11-Win2DPracticeDrawings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P12-Win2DAnimations.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P13-Win2DDelegatePrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P14-Win2DPrintingExample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P15-ComboBox Samples.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P16-ConsoleCodeSamples.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\P17-TestNumericInputTypes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PageBlank-CopyToMakeNewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\S01-Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\S02-WindowSizeInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.12</Version>
+    </PackageReference>
+    <PackageReference Include="Win2D.uwp">
+      <Version>1.25.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

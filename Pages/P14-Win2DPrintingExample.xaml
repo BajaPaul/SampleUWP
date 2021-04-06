@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="SampleUWP.P14"
+    xmlns:local="using:SampleUWP"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Unloaded="Page_Unloaded">
+    
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8">
+            <TextBlock MaxWidth="400" TextAlignment="Left" HorizontalAlignment="Center" TextWrapping="Wrap">
+                This example shows how to use 
+                <Hyperlink NavigateUri="http://microsoft.github.io/Win2D/html/T_Microsoft_Graphics_Canvas_Printing_CanvasPrintDocument.htm">CanvasPrintDocument</Hyperlink>
+                to print content drawn by Win2D.
+                <LineBreak/><LineBreak/>
+                This demo will print the various example gallery icons across as many pages as necessary.  This demonstrates
+                how the print preview responds to changes in printer settings.  Note that when changing the paper size the
+                preview window will attempt to keep whatever item was currently first on the page still visible in the new layout.
+                <LineBreak/><LineBreak/>  
+                Press the button below to get started!
+            </TextBlock>
+            <Button Content="Print" Click="OnPrintClicked" HorizontalAlignment="Center" Margin="50"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

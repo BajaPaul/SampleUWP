@@ -1,0 +1,46 @@
+﻿<Page 
+    x:Class="SampleUWP.B06" 
+    xmlns:local="using:SampleUWP" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d">
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Note that escape sequences are required to show brackets at end of following TextBlock Text -->
+        <TextBlock Grid.Row="0" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="0,16" TextWrapping="WrapWholeWords" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="{Binding Source={StaticResource appObjectWidthMax}}"
+                   Text="This binding sample shows how to bind to a collection and receive notifications when the collection changes using ObservableCollection&lt;T&gt;." TextAlignment="Center" IsTextSelectionEnabled="True"/>
+
+        <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0">
+            <Grid.Resources>
+                <CollectionViewSource x:Name="teamsCVS"/>
+            </Grid.Resources>
+            <!-- ListVeiw adds scroller automatically.  Set height to show scollerbar. -->
+            <ListView x:Name="lvTeams" ItemsSource="{Binding Source={StaticResource teamsCVS}}" Height="200">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="{Binding Color}" Width="200" CornerRadius="10" HorizontalAlignment="Left" Margin="8,0">
+                            <TextBlock Text="{Binding Name}" Style="{ThemeResource BaseTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4"/>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="btnRemoveTeam" Content="Remove Team" HorizontalAlignment="Center" Margin="0,24,0,8"/>
+            <TextBlock x:Name="statusChangedTextBlock" Style="{ThemeResource BodyTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="0,8"/>
+        </StackPanel>
+
+        <Button Grid.Row="3" Content="Reset" Margin="0,8,0,16" Click="Reset_Click" HorizontalAlignment="Center"/>
+
+    </Grid>
+</Page>

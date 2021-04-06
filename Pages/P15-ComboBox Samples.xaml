@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="SampleUWP.P15"
+    xmlns:local="using:SampleUWP"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <!--  Check out ComboBoxes -->
+    
+    <Page.Resources>
+        <!-- The following binding converter class is defined at end of P15-UnitConversions.xaml.cs -->
+        <local:Example2ValueToFontFamilyConverter x:Key="example2ValueToFontFamilyConverter" />
+        
+        <!-- The following binding converter class is defined at end of P15-UnitConversions.xaml.cs -->
+        <local:Example3ValueToFontFamilyConverter x:Key="example3ValueToFontFamilyConverter" />
+
+        <Style x:Key="OutputTextBlockStyle" BasedOn="{StaticResource BodyTextBlockStyle}" TargetType="TextBlock">
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+    </Page.Resources>
+    
+    <RelativePanel>
+        
+        <!-- ComboBox Sample 1 -->
+        <TextBlock x:Name="sample1" Text="Sample 1:  ComboBox with it's items defined inline." RelativePanel.AlignLeftWithPanel="True" Margin="8" RelativePanel.AlignTopWithPanel="True"/>
+        <ComboBox x:Name="CboxSample1" SelectionChanged="CboxSample1_SelectionChanged" Header="Colors" PlaceholderText="Pick a color" Width="200" RelativePanel.Below="sample1" RelativePanel.AlignLeftWithPanel="True" Margin="8,4,8,8">
+            <x:String>Red</x:String>
+            <x:String>Green</x:String>
+            <x:String>Blue</x:String>
+            <x:String>Yellow</x:String>
+        </ComboBox>
+        <Rectangle x:Name="Control1Output" Height="50" Width="200" Margin="8" Fill="Cyan" RelativePanel.Below="CboxSample1" RelativePanel.AlignLeftWithPanel="True"/>
+
+        <!-- ComboBox Sample 2 -->
+        <TextBlock x:Name="sample2" Text="Sample 2:  ComboBox with it's items defined via a ItemsSource." RelativePanel.Below="Control1Output" RelativePanel.AlignLeftWithPanel="True" Margin="8,32,8,1"/>
+        <!-- For cboxEample2 below, ItemSources was defined from a Tuple List.  Item1 and Item2 below are the first and second values of the Tuple."  -->
+        <ComboBox x:Name="CboxSample2" ItemsSource="{x:Bind ComboBoxFonts}" DisplayMemberPath="Item1" SelectedValuePath="Item2" Header="Font" Width="200" Loaded="CboxSample2_Loaded" SelectionChanged="CboxSample2_SelectionChanged" RelativePanel.Below="sample2" RelativePanel.AlignLeftWithPanel="True" Margin="8,4,8,8"/>
+        <TextBlock x:Name="Control2Output" Text="Default Text." FontFamily="{x:Bind CboxSample2.SelectedValue, Converter={StaticResource example2ValueToFontFamilyConverter}, Mode=OneWay}" Style="{StaticResource OutputTextBlockStyle}" RelativePanel.Below="CboxSample2" RelativePanel.AlignLeftWithPanel="True" Margin="8,8,8,16"/>
+
+        <!-- ComboBox Sample 3 -->
+        <TextBlock x:Name="sample3" Text="Sample 3:  ComboBox with it's items defined via a ItemsSource and valuse set by code behind." RelativePanel.Below="Control2Output" RelativePanel.AlignLeftWithPanel="True" Margin="8,32,8,1"/>
+        <!-- This Example3 set ItemsSource, DisplayMemberPath, SelectedValuePath via code behind. -->
+        <ComboBox x:Name="CboxSample3" Header="Font" Width="200" SelectionChanged="CboxSample3_SelectionChanged" RelativePanel.Below="sample3" RelativePanel.AlignLeftWithPanel="True" Margin="8,4,8,8"/>
+        <TextBlock x:Name="Control3Output" Text="Default Text." FontFamily="{x:Bind CboxSample3.SelectedValue, Converter={StaticResource example3ValueToFontFamilyConverter}, Mode=OneWay}" Style="{StaticResource OutputTextBlockStyle}" RelativePanel.Below="CboxSample3" RelativePanel.AlignLeftWithPanel="True" Margin="8,8,8,16"/>
+
+        <!-- ComboBox Sample 4 -->
+        <TextBlock x:Name="sample4" Text="Sample 4:  Simplified ComboBox setup using ItemsSource with a list of strings as input." RelativePanel.Below="Control3Output" RelativePanel.AlignLeftWithPanel="True" Margin="8,32,8,1"/>
+        <!-- This Example4 set ItemsSource via code behind. -->
+        <ComboBox x:Name="CboxSample4" Header="Simplifed ComboBox" Width="200" SelectionChanged="CboxSample4_SelectionChanged" RelativePanel.Below="sample4" RelativePanel.AlignLeftWithPanel="True" Margin="8,4,8,8"/>
+        <TextBlock x:Name="Control4Output" Text="Selected item: " Style="{StaticResource OutputTextBlockStyle}" RelativePanel.Below="CboxSample4" RelativePanel.AlignLeftWithPanel="True" Margin="8,8,8,16"/>
+
+    </RelativePanel>
+</Page>
